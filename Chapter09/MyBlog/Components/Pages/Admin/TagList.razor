@@ -1,0 +1,67 @@
+@page "/admin/tags"
+@attribute [Authorize]
+@using Components.RazorComponents
+@inject IBlogApi _api
+<h3>Tags</h3>
+<EditForm OnValidSubmit="Save" Model="Item">
+    <DataAnnotationsValidator />
+    <CustomCssClassProvider ProviderType="BootstrapFieldCssClassProvider" />
+    <InputText @bind-Value="@Item.Name" />
+    <ValidationMessage For="@(()=>Item.Name)" />
+    <button class="btn btn-success" type="submit">Save</button>
+</EditForm>
+<ItemList Items="Items" DeleteEvent="@Delete" SelectEvent="@Select" ItemType="Tag">
+    <ItemTemplate>
+        @{
+            var item = context as Tag;
+            if (item != null)
+            {
+                @item.Name
+            }
+        }
+    </ItemTemplate>
+</ItemList>
+
+@code {
+    private List<Tag> Items { get; set; } = new List<Tag>();
+    public Tag Item { get; set; } = new Tag();
+    protected async override Task OnInitializedAsync()
+    {
+        Items = (await _api.GetTagsAsync())??new();
+        await base.OnInitializedAsync();
+    }
+
+    private async Task Delete(Tag tag)
+    {
+        try
+        {
+            await _api.DeleteTagAsync(tag.Id!);
+            Items.Remove(tag);
+        }
+        catch { }
+    }
+
+    private async Task Save()
+    {
+        try
+        {
+            await _api.SaveTagAsync(Item);
+            if (!Items.Contains(Item))
+            {
+                Items.Add(Item);
+            }
+            Item = new Tag();
+        }
+        catch { }
+    }
+
+    private Task Select(Tag tag)
+    {
+        try
+        {
+            Item = tag;
+        }
+        catch { }
+        return Task.CompletedTask;
+    }
+}

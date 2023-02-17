@@ -1,0 +1,27 @@
+﻿@page "/bind-after"
+@using Microsoft.AspNetCore.Components.Forms
+
+<h1>Bind After Examples</h1>
+
+<h2>Elements</h2>
+
+<input type="text" @bind="text" @bind:after="() => { }" />
+
+<input type="text" @bind="text" @bind:after="After" />
+
+<input type="text" @bind="text" @bind:after="AfterAsync" />
+
+<h2>Components</h2>
+
+<InputText @bind-Value="text" @bind-Value:after="() => { }" />
+
+<InputText @bind-Value="text" @bind-Value:after="After" />
+
+<InputText @bind-Value="text" @bind-Value:after="AfterAsync" />
+
+@code {
+    private string text = "";
+
+    private void After() { }
+    private Task AfterAsync() { return Task.CompletedTask; }
+}

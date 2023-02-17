@@ -1,0 +1,8 @@
+{
+    "Id":"TestPost1",
+    "Title":"Raccoons are awesome",
+    "Text":"Raccoons are mischievous creatures, known for their playful nature and clever antics. They can often be found rummaging through garbage cans, searching for tasty treats to munch on. But don't let their trashy habits fool you - raccoons are actually quite intelligent and resourceful animals.\nOne of the most fascinating things about raccoons is their paws. They have five fingers on each paw, which are covered in soft, sensitive pads that allow them to grasp objects with incredible precision. This ability comes in handy when they're trying to open a can of beans or raid a bird feeder.\nDespite their reputation as pests, raccoons are actually quite cute and charismatic creatures. They have fluffy, ringed tails and distinctive black and white masks that give them a playful, almost mischievous appearance. It's no wonder that they have become popular mascots and characters in children's books and movies.So the next time you see a raccoon rummaging through your trash, try to appreciate their playful spirit and clever ways.",
+    "PublishDate":"2022-05-02T20:46:09.7156866+02:00",
+    "Category":{"Id":"TestCategory1","Name":"Test Category"},
+    "Tags":[{"Id":"TestTag1","Name":"Test tag 1"},{"Id":"TestTag2","Name":"Test tag 2"}]
+}

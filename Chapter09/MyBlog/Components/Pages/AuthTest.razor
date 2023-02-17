@@ -1,0 +1,19 @@
+﻿@page "/authtest"
+
+<PageTitle>Index</PageTitle>
+
+<AuthorizeView>
+    <Authorized>
+        @foreach (var claim in context.User.Claims)
+        {
+            <p>@claim.Type - @claim.Value</p>
+        }
+    </Authorized>
+    <NotAuthorized>
+        Please login to see all the claims, <a href="authentication/login">Log in</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+<AuthorizeView Roles="Administrator">
+    Only Administrators can see this.
+</AuthorizeView>

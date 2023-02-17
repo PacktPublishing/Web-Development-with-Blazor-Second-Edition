@@ -1,0 +1,20 @@
+﻿@inherits LayoutComponentBase
+@inject ILoginStatus status
+<div class="page">
+    <AuthorizeView Roles="Administrator">
+        <div class="sidebar">
+            <NavMenu />
+        </div>
+    </AuthorizeView>
+
+
+    <main>
+        <div class="top-row px-4">
+            <DynamicComponent Type="@status.GetType()" />
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>

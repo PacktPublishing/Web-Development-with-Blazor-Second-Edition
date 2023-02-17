@@ -1,0 +1,17 @@
+﻿@inherits LayoutComponentBase
+@inject ILoginStatus status
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <DynamicComponent Type="@status.GetType()" />
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
