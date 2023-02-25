@@ -1,7 +1,6 @@
 using Data.Models.Interfaces;
 using Microsoft.AspNetCore.ResponseCompression;
 using Data;
-using Data.Models.Interfaces;
 using BlazorWebAssembly.Server.Endpoints;
 var builder = WebApplication.CreateBuilder(args);
 
