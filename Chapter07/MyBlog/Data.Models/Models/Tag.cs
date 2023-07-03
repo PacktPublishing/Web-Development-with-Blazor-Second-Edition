@@ -5,6 +5,3 @@ public class Tag
     [Required]
     public string Name { get; set; } = string.Empty;
 }
-
-
-CustomCssClassProvider
